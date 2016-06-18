@@ -1,0 +1,96 @@
+form
+{
+	margin: 0 auto; 
+	width:250px;
+}
+#home_body
+{
+	padding: 15%;
+}
+table
+{
+	margin: 0 auto; 
+	
+}
+.logout
+{
+	margin-left: 1270px;
+	margin-top: -200px;
+	height: 30px;
+	border-radius: 4px;
+	border: 1px solid #3079ed;
+	background-color: #4d90fe;
+	color: white;
+	font-weight: bold;
+
+}
+hr
+{
+	border: 1px solid blue;
+}
+.button_update
+{
+	border: 1px solid #3079ed;
+	background-color: #4d90fe;
+	color: white;
+	height: 35px;
+	border-radius: 4px;
+	margin-left: 270px;
+}
+.login
+{
+	height: 30px;
+	border-radius: 4px;
+	border: 1px solid #3079ed;
+	background-color: #4d90fe;
+	color: white;
+	font-weight: bold;		
+}
+#container
+{
+	border: 1px solid black;
+	margin: 0 auto; 
+	width:1000px;
+	height: 350px;
+	background-color: white;
+	overflow: scroll;
+	overflow-x: hidden;
+	margin-top: 10px;
+}
+h4
+{
+}
+.search_button
+{
+	border: 1px solid #3079ed;
+	background-color: #4d90fe;
+	color: white;
+	height: 30px;
+	border-radius: 4px;
+}
+.search_box
+{
+	margin-left: 1100px;
+	height: 27px;
+	border: 1px solid white;
+	border-radius: 4px;
+}
+textarea
+{
+	border: 1px solid white;
+	border-radius: 4px;	
+}
+h3
+{
+	margin: 0 auto;
+	margin-left: 600px;
+	margin-top: 60px;
+}
+div
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-style: groove;
+}
