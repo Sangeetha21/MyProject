@@ -11,6 +11,12 @@ on:
 
 jobs:
   build:
+  name: Run API Automation
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out repository
+        with:
+          repository: Adaptavant/Setmore-Automation-WebApp
 
     runs-on: ubuntu-latest
 
