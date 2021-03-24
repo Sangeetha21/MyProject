@@ -25,8 +25,7 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: c9452c4ec74d88d9676a0dae322024ef50c6c569
-            event-type: tests
-            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+           
 
                 
                 
