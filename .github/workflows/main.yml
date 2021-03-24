@@ -1,32 +1,46 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Setmore API Tests - Node.js CI
 
 on:
+  workflow_dispatch: 
+    description: 'Running API tests manually...'
   push:
-    branches: [ master ]
+    branches: [ master,cache-github-actions]
   pull_request:
     branches: [ master ]
+    types: [opened]
+ 
 
 jobs:
-  build:
-  name: Run API Automation
-  steps:
-     - uses: actions/checkout@v2
-       name: Check out repository
-       with:
-          repository: Adaptavant/Setmore-Automation-WebApp
-          token: 28e6e3ca516b8b7201401c0409b3f2124b12947e
-          event-type: tests
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+  repository:
+ 
+   runs-on : ubuntu-latest
+   timeout-minutes: 1
+   steps :
+         - name: Check out repository
+           uses: actions/checkout@v2
+           
+           with:
+            repository: Adaptavant/Setmore-Automation-WebApp
+            token: 28e6e3ca516b8b7201401c0409b3f2124b12947e
+            event-type: tests
+            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
-  runs-on: ubuntu-latest
+                
+                
+  api-tests:
+    runs-on : ubuntu-latest
+    timeout-minutes: 10
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [14.x]
+    defaults:
+      run:
+        shell: bash
+        working-directory: setmore
 
     steps:
     - uses: actions/checkout@v2
@@ -34,6 +48,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+
+    
