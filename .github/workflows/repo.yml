@@ -22,9 +22,10 @@ jobs:
    steps :
          - name: Check out repository
            uses: actions/checkout@v2
-           with:
-            run: |
-              curl -v \
+           with:  
+              repository: Adaptavant/Setmore-Automation-WebApp
+              run: |
+               curl -v \
               -H "Accept:  application/vnd.github.everest-preview+json" \
               -H "Content-Type: application/json" \
               -H "Authorization:  Bearer c9452c4ec74d88d9676a0dae322024ef50c6c569 " \
