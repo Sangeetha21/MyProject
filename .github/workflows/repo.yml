@@ -21,7 +21,7 @@ jobs:
    timeout-minutes: 1
    steps :
          - name: Check out repository
-         - uses: actions/checkout@v2
+           uses: actions/checkout@v2
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: 28e6e3ca516b8b7201401c0409b3f2124b12947e
