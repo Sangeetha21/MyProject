@@ -9,16 +9,14 @@ name: Setmore API Tests - Node.js CI
 on:
   
   push:
-    branches: [ master,cache-github-actions]
+    branches: [ master,new_branch_repository]
   pull_request:
     branches: [ master ]
     types: [opened]
-  schedule:
-    - cron: '0 09 * * *'
+
 
 jobs:
-  api-tests-sendmsg-on-every-pull-request:
-   if: github.event_name == 'pull_request'
+  api-tests-on-Deployment:
    runs-on : ubuntu-latest
    timeout-minutes: 1
    steps :
