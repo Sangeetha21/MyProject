@@ -24,7 +24,7 @@ jobs:
            uses: actions/checkout@v2
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
-            token: 28e6e3ca516b8b7201401c0409b3f2124b12947e
+            token: c9452c4ec74d88d9676a0dae322024ef50c6c569
             event-type: tests
             client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
