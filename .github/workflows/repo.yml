@@ -22,7 +22,7 @@ jobs:
    steps :
          - name: Check out repository
            run: |
-               git clone https://username:c5f4309e6de69d725a72b5ff1e1812e841e4123c@github.com/Adaptavant/Setmore-Automation-WebApp.git
+               git clone https://Sangeetha21:c5f4309e6de69d725a72b5ff1e1812e841e4123c@github.com/Adaptavant/Setmore-Automation-WebApp.git
 #            uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 #            with:  
 #               repository: 'Adaptavant/Setmore-Automation-WebApp'
