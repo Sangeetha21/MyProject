@@ -26,7 +26,7 @@ jobs:
                export GIT_ASKPASS=c5f4309e6de69d725a72b5ff1e1812e841e4123c
                echo settoken
 
-               git config user.email "sangeetha.gopal@a-cti.com"
+               git config --global user.email "sangeetha.gopal@a-cti.com"
                echo seteamil
                git config --global user.name "Sangeetha21"
                echo setusername
