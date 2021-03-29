@@ -24,7 +24,7 @@ jobs:
            uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
            with:  
               repository: 'Adaptavant/Setmore-Automation-WebApp'
-              token: 'c5f4309e6de69d725a72b5ff1e1812e841e4123c'
+              token: c5f4309e6de69d725a72b5ff1e1812e841e4123c
               ref: 'master'
 #               run: |
 #                 curl -v \
