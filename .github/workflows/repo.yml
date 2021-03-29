@@ -30,7 +30,7 @@ jobs:
                 -H "Content-Type: application/json" \
                 -H "Authorization:  Bearer c9452c4ec74d88d9676a0dae322024ef50c6c569 " \
                  https://api.github.com/repos/Adaptavant/Setmore-Automation-WebApp/dispatches \
-                -X POST -d '{"event_type":"GITHUB_REF", "client_payload": {}}'
+                -X POST -d '{"event_type":"", "client_payload": {"branch":"master"}'
                           
   api-tests:
     runs-on : ubuntu-latest
