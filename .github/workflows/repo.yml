@@ -23,8 +23,8 @@ jobs:
          - name: Check out repository
            uses: actions/checkout@v2
            with:  
-              repository: Adaptavant/Setmore-Automation-WebApp
-              token: c9452c4ec74d88d9676a0dae322024ef50c6c569
+              repository: 'Adaptavant/Setmore-Automation-WebApp'
+              token: 'c9452c4ec74d88d9676a0dae322024ef50c6c569'
               ref: 'master'
 #               run: |
 #                 curl -v \
