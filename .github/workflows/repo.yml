@@ -22,7 +22,7 @@ jobs:
    steps :
          - name: Check out repository
            run: |
-                https://Sangeetha21:d2c7bf91ce612944f4f393c84f233fc78c4e44d5@github.com/Adaptavant/Setmore-Automation-WebApp.git    
+                https://Sangeetha21:{{secrets.PAT}}@github.com/Adaptavant/Setmore-Automation-WebApp.git    
 #                export GIT_ASKPASS=c5f4309e6de69d725a72b5ff1e1812e841e4123c
 #                echo settoken
 
