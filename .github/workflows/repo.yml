@@ -26,6 +26,7 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: ${{ secrets.PAT }}
+            if: success()
 #            shell: bash
 #            env:
 #                SUPER_SECRET: ${{ secrets.PAT  }}
