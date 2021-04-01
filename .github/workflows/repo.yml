@@ -25,7 +25,7 @@ jobs:
            env:
                SUPER_SECRET: ${{ secrets.PAT  }}
            run: |
-                https://Sangeetha21:"$SUPER_SECRET"@github.com/Adaptavant/Setmore-Automation-WebApp.git    
+                https://Sangeetha21:$SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git    
 #                export GIT_ASKPASS=c5f4309e6de69d725a72b5ff1e1812e841e4123c
 #                echo settoken
 
