@@ -26,7 +26,21 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: ${{ secrets.PAT }}
-            if: success()
+         - uses: actions/setup-node@v2
+           with:
+             node-version: '12'
+             name :  'installing dependencies '
+             run: npm ci
+             working-directory: ./setmore
+         - name : ' running api test automation test case  '
+           run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter 
+         - name: Generate allure report and upload to secure server
+           if: ${{ always() }}
+           run: |
+                # Generate allure report and upload to secure server
+                 ./node_modules/.bin/allure generate allure-results --clean -o allure-report
+                 chmod 400 .secrets/report.ssh
+          
 #            shell: bash
 #            env:
 #                SUPER_SECRET: ${{ secrets.PAT  }}
@@ -54,35 +68,35 @@ jobs:
 #                  https://api.github.com/repos/Adaptavant/Setmore-Automation-WebApp/dispatches \
 #                 -X POST -d '{"event_type":"trigger", "client_payload": {"branch":"master"}'
                           
-  api-tests:
-    runs-on : ubuntu-latest
-    timeout-minutes: 10
+#   api-tests:
+#     runs-on : ubuntu-latest
+#     timeout-minutes: 10
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./setmore
+#     strategy:
+#       matrix:
+#         node-version: [14.x]
+#     defaults:
+#       run:
+#         shell: bash
+#         working-directory: ./setmore
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
         
-    - name: Execute the API Tests 
-      run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+#     - name: Execute the API Tests 
+#       run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
 
-    - name: Generate allure report and upload to secure server
-      if: ${{ always() }}
-      run: |
-        # Generate allure report and upload to secure server
-        ./node_modules/.bin/allure generate allure-results --clean -o allure-report
-        chmod 400 .secrets/report.ssh
+#     - name: Generate allure report and upload to secure server
+#       if: ${{ always() }}
+#       run: |
+#         # Generate allure report and upload to secure server
+#         ./node_modules/.bin/allure generate allure-results --clean -o allure-report
+#         chmod 400 .secrets/report.ssh
         
-        if [ "${{github.event_name }}" == "schedule" ]; then
-        sh uploadReportsToAw.sh
+#         if [ "${{github.event_name }}" == "schedule" ]; then
+#         sh uploadReportsToAw.sh
         
