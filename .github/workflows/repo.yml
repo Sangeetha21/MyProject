@@ -26,11 +26,12 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: ${{ secrets.PAT }}
+                         echo::"GITHUB_REPOSITORY"
+
    
-         - run: ls
-                       echo ::"$GITHUB_WORKSPACE/setmore"
 
          - uses: actions/setup-node@v2
+            echo::"GITHUB_REPOSITORY"
      
            with:
              working-directory: /setmore
