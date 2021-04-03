@@ -32,16 +32,17 @@ jobs:
              name :  'installing dependencies '
              run: npm ci
              working-directory: setmore
+         - run: ls
          - name : ' running api test automation test case  '
            run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
            working-directory: setmore
 
-         - name: Generate allure report and upload to secure server
-           if: ${{ always() }}
-           run: |
-                # Generate allure report and upload to secure server
-                 ./node_modules/.bin/allure generate allure-results --clean -o allure-report
-                 chmod 400 .secrets/report.ssh
+#          - name: Generate allure report and upload to secure server
+#            if: ${{ always() }}
+#            run: |
+#                 # Generate allure report and upload to secure server
+#                  ./node_modules/.bin/allure generate allure-results --clean -o allure-report
+#                  chmod 400 .secrets/report.ssh
           
 #            shell: bash
 #            env:
