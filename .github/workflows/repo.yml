@@ -33,17 +33,16 @@ jobs:
          - uses: actions/setup-node@v2
      
            with:
-#              working-directory: Setmore-Automation-WebApp/setmore
+             working-directory: /setmore
 
              node-version: '12'
              name :  'installing dependencies '
              run: npm ci
-             working-directory: Setmore-Automation-WebApp/setmore
+
          - run: ls
          - name : ' running api test automation test case  '
            run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
-           working-directory: ./setmore
-
+           working-directory: /setmore
 #          - name: Generate allure report and upload to secure server
 #            if: ${{ always() }}
 #            run: |
