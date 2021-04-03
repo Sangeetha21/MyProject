@@ -30,17 +30,17 @@ jobs:
             token: ${{ secrets.PAT }}
 
 
-              echo '${{ github.repository }}'
    
 
          - uses: actions/setup-node@v2
      
            with:
-             working-directory: /setmore
 
              node-version: '12'
              name :  'installing dependencies '
              run: npm ci
+             working-directory: /setmore
+
 
          - run: ls
          - name : ' running api test automation test case  '
