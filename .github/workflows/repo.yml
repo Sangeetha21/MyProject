@@ -24,9 +24,11 @@ jobs:
            uses: actions/checkout@master
 
            with:
-            repository: Adaptavant/Setmore-Automation-WebApp
-            token: ${{ secrets.PAT }}
+            repository: 'Adaptavant/Setmore-Automation-WebApp'
+            ref: 'master'
             path: /setmore
+            token: ${{ secrets.PAT }}
+
 
               echo '${{ github.repository }}'
    
