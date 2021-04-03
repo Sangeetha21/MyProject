@@ -26,6 +26,8 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: ${{ secrets.PAT }}
+            path: /setmore
+
               echo '${{ github.repository }}'
    
 
