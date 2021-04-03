@@ -26,11 +26,11 @@ jobs:
            with:
             repository: Adaptavant/Setmore-Automation-WebApp
             token: ${{ secrets.PAT }}
-            run: echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/setmore
             working-directory: Setmore-Automation-WebApp/setmore
    
          - run: ls
-   
+                       echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/setmore
+
          - uses: actions/setup-node@v2
      
            with:
