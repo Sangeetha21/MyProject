@@ -30,7 +30,6 @@ jobs:
    
 
          - uses: actions/setup-node@v2
-            echo::"GITHUB_REPOSITORY"
      
            with:
              working-directory: /setmore
