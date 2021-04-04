@@ -27,7 +27,7 @@ jobs:
             repository: 'Adaptavant/Setmore-Automation-WebApp'
             default: ${{ github.repository }}
             ref: 'master'
-            path: /setmore
+            path: ./setmore
             token: ${{ secrets.PAT }}
 
 
@@ -40,13 +40,13 @@ jobs:
              node-version: '12'
              name :  'installing dependencies '
              run: npm ci
-             working-directory: /setmore
+             working-directory: ./setmore
 
 
          - run: ls
          - name : ' running api test automation test case  '
            run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
-           working-directory: /setmore
+           working-directory: ./setmore
 #          - name: Generate allure report and upload to secure server
 #            if: ${{ always() }}
 #            run: |
