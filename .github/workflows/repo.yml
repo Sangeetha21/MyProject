@@ -41,7 +41,7 @@ jobs:
              name :  'installing dependencies '
              run: |
                npm install cross-env
-               npm install
+               npm install --save-dev
              working-directory: ./setmore
 
 
