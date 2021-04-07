@@ -38,11 +38,12 @@ jobs:
            with:
 
              node-version: '12'
-             working-directory: ./setmore
 
-             name :  'installing dependencies '
+             name :  'installing dependencies and run apitest'
+             working-directory: ./setmore/node_modules/
+
              run: |
-               ls
+               
                npm install cross-env
                npm install --save-dev
                rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
