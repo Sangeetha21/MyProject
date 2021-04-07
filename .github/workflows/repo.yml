@@ -45,8 +45,7 @@ jobs:
                ls
                npm install cross-env
                npm install --save-dev
-               node_modules/.bin/mocha apiTest/*.js
-
+               rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
 
 #          - run: | 
 #                  ls
