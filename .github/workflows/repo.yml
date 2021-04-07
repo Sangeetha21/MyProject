@@ -45,9 +45,11 @@ jobs:
              working-directory: ./setmore
 
 
-         - run: ls
+         - run: | 
+                 ls
+                 cd setmore
          - name : ' running api test automation test case  '
-           run: cd setmore
+#            run: cd setmore
            working-directory: ./setmore/node_modules/
            
 #            run: node_modules/.bin/mocha apiTest/*.js
