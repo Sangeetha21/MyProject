@@ -25,7 +25,6 @@ jobs:
 
            with:
             repository: 'Adaptavant/Setmore-Automation-WebApp'
-            default: ${{ github.repository }}
             ref: 'master'
             path: ./setmore
             token: ${{ secrets.PAT }}
