@@ -38,19 +38,22 @@ jobs:
            with:
 
              node-version: '12'
-             name :  'installing dependencies '
-             run: |
-               npm install cross-env
-               npm install --save-dev
              working-directory: ./setmore
 
+             name :  'installing dependencies '
+             run: |
+               ls
+               npm install cross-env
+               npm install --save-dev
+               node_modules/.bin/mocha apiTest/*.js
 
-         - run: | 
-                 ls
-                 cd setmore
-         - name : 'running api test automation test case'
-           run: cd setmore
-           working-directory: ./setmore/node_modules/
+
+#          - run: | 
+#                  ls
+#                  cd setmore
+#          - name : 'running api test automation test case'
+#            run: cd setmore
+#            working-directory: ./setmore/node_modules/
            
 #            run: node_modules/.bin/mocha apiTest/*.js
 #            run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
