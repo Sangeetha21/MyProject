@@ -28,24 +28,33 @@ jobs:
             ref: 'master'
             path: ./setmore
             token: ${{ secrets.PAT }}
+            working-directory: ./setmore
+            node-version: '12'
+            run: |
+               
+               npm install cross-env
+
+               rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+
+            
 
 
    
 
-         - uses: actions/setup-node@v2
+#          - uses: actions/setup-node@v2
      
-           with:
+#            with:
 
-             node-version: '12'
+#              node-version: '12'
 
-             name :  'installing dependencies and run apitest'
-             working-directory: ./setmore/node_modules/
+#              name :  'installing dependencies and run apitest'
+#              working-directory: ./setmore/node_modules/
 
-             run: |
+#              run: |
                
-               npm install cross-env
-               npm install --save-dev
-               rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+#                npm install cross-env
+
+#                rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
 
 #          - run: | 
 #                  ls
