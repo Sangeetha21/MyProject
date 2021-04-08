@@ -18,10 +18,18 @@ on:
 jobs:
   api-tests-on-Deployment:
    runs-on : ubuntu-latest
+   
    timeout-minutes: 1
+   defaults:
+       run:
+         shell: bash
+         working-directory: ./setmore 
+   
+   
+
    steps :
-         - name: Check out repository
-           uses: actions/checkout@v2
+       - name: Check out repository
+         uses: actions/checkout@v2
 #            shell: bash
 #            env:
 #                SUPER_SECRET: ${{ secrets.PAT  }}
@@ -30,21 +38,24 @@ jobs:
 #                 git clone https://Sangeetha21:SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git   
 #                 ls
 
-           with:
+         with:
             repository: 'Adaptavant/Setmore-Automation-WebApp'
             ref: 'master'
-            path: ./setmore 
-            
+            path: Setmore-Automation-WebApp 
             token: ${{ secrets.PAT }}
-            working-directory: ./setmore
-            node-version: '12'
-            run: |
-               echo $PWD
-               ls
+            
+ 
+       - name: Use Node.js 
+         uses: actions/setup-node@v1
+         with:
+          node-version: 12
+          run: |
+                echo $PWD
+                ls
                
-               npm install cross-env
+                npm install cross-env
 
-               rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+                rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
 
             
 
