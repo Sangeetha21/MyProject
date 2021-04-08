@@ -25,7 +25,8 @@ jobs:
            env:
                SUPER_SECRET: ${{ secrets.PAT  }}
            run: |
-                https://Sangeetha21:SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git   
+               
+                git clone https://Sangeetha21:SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git   
                 ls
 
 #            with:
