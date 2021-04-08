@@ -55,7 +55,8 @@ jobs:
             echo "sangee was heere"
             echo $PWD
             ls
-            cd   
+            cd Setmore-Automation-WebApp
+            cd setmore
             
 
 
