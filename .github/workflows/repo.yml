@@ -57,7 +57,7 @@ jobs:
             ls
             cd Setmore-Automation-WebApp
             cd setmore
-            
+            ls
 
 
    
