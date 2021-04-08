@@ -23,7 +23,7 @@ jobs:
    defaults:
        run:
          shell: bash
-         working-directory: ./setmore 
+#          working-directory: ./setmore 
    
    
 
