@@ -55,7 +55,7 @@ jobs:
             echo "sangee was heere"
             echo $PWD
             ls
-               
+            cd   
             
 
 
