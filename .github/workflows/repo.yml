@@ -58,7 +58,8 @@ jobs:
             cd Setmore-Automation-WebApp
             cd setmore
             ls
-
+            npm install cross-env
+            rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
 
    
 
