@@ -12,7 +12,7 @@ on:
     branches: [ master,new_branch_repository]
   pull_request:
     branches: [ master ]
-    types: [opened]
+    
 
 
 jobs:
