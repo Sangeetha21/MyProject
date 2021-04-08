@@ -49,7 +49,9 @@ jobs:
          uses: actions/setup-node@v1
          with:
           node-version: 12
-          run: |
+          
+       - name: Run Test Cases   
+         run: |
                 echo $PWD
                 ls
                
