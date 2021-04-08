@@ -52,13 +52,10 @@ jobs:
           
        - name: Run Test Cases   
          run: |
-                echo $PWD
-                ls
+            echo "sangee was heere"
+            echo $PWD
+            ls
                
-                npm install cross-env
-
-                rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
-
             
 
 
