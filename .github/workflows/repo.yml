@@ -1,0 +1,154 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Setmore API Tests - Node.js CI
+
+on:
+  
+  push:
+    branches: [ master]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  api-tests-on-Deployment:
+   runs-on : ubuntu-latest
+   
+   timeout-minutes: 1
+   defaults:
+       run:
+         shell: bash
+#          working-directory: ./setmore 
+   
+   
+
+   steps :
+       - name: Check out repository
+         uses: actions/checkout@v2
+#            shell: bash
+#            env:
+#                SUPER_SECRET: ${{ secrets.PAT  }}
+#            run: |
+               
+#                 git clone https://Sangeetha21:SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git   
+#                 ls
+
+         with:
+            repository: 'Adaptavant/Setmore-Automation-WebApp'
+            ref: 'master'
+            path: Setmore-Automation-WebApp 
+            token: ${{ secrets.PAT }}
+            
+ 
+       - name: Use Node.js 
+         uses: actions/setup-node@v1
+         with:
+          node-version: 12
+          
+       - name: Run Test Cases   
+         run: |
+            echo "sangee was heere"
+            echo $PWD
+            ls
+            cd Setmore-Automation-WebApp
+            cd setmore
+            ls
+            npm install cross-env
+            rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+            
+
+   
+
+#          - uses: actions/setup-node@v2
+     
+#            with:
+
+#              node-version: '12'
+
+#              name :  'installing dependencies and run apitest'
+#              working-directory: ./setmore/node_modules/
+
+#              run: |
+               
+#                npm install cross-env
+
+#                rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+
+#          - run: | 
+#                  ls
+#                  cd setmore
+#          - name : 'running api test automation test case'
+#            run: cd setmore
+#            working-directory: ./setmore/node_modules/
+           
+#            run: node_modules/.bin/mocha apiTest/*.js
+#            run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+#          - name: Generate allure report and upload to secure server
+#            if: ${{ always() }}
+#            run: |
+#                 # Generate allure report and upload to secure server
+#                  ./node_modules/.bin/allure generate allure-results --clean -o allure-report
+#                  chmod 400 .secrets/report.ssh
+          
+#            shell: bash
+#            env:
+#                SUPER_SECRET: ${{ secrets.PAT  }}
+#            run: |
+ 
+#                 https://Sangeetha21:SUPER_SECRET@github.com/Adaptavant/Setmore-Automation-WebApp.git    
+#                export GIT_ASKPASS=c5f4309e6de69d725a72b5ff1e1812e841e4123c
+#                echo settoken
+
+#                git config --global user.email "sangeetha.gopal@a-cti.com"
+#                echo seteamil
+#                git config --global user.name "Sangeetha21"
+#                echo setusername
+#                git clone https://github.com/Adaptavant/Setmore-Automation-WebApp.git
+#            uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+#            with:  
+#               repository: 'Adaptavant/Setmore-Automation-WebApp'
+#               token: c5f4309e6de69d725a72b5ff1e1812e841e4123c
+#               ref: 'master'
+#               run: |
+#                 curl -v \
+#                 -H "Accept:  application/vnd.github.everest-preview+json" \
+#                 -H "Content-Type: application/json" \
+#                 -H "Authorization:  Bearer c9452c4ec74d88d9676a0dae322024ef50c6c569 " \
+#                  https://api.github.com/repos/Adaptavant/Setmore-Automation-WebApp/dispatches \
+#                 -X POST -d '{"event_type":"trigger", "client_payload": {"branch":"master"}'
+                          
+#   api-tests:
+#     runs-on : ubuntu-latest
+#     timeout-minutes: 10
+
+#     strategy:
+#       matrix:
+#         node-version: [14.x]
+#     defaults:
+#       run:
+#         shell: bash
+#         working-directory: ./setmore
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+        
+#     - name: Execute the API Tests 
+#       run: rm -rf scratch/detailsRequire && DEBUG=mocha:* node_modules/.bin/mocha apiTest/*.js --timeout 70000  --reporter mocha-allure-reporter
+
+#     - name: Generate allure report and upload to secure server
+#       if: ${{ always() }}
+#       run: |
+#         # Generate allure report and upload to secure server
+#         ./node_modules/.bin/allure generate allure-results --clean -o allure-report
+#         chmod 400 .secrets/report.ssh
+        
+#         if [ "${{github.event_name }}" == "schedule" ]; then
+#         sh uploadReportsToAw.sh
+        
