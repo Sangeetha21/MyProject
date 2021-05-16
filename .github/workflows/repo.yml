@@ -9,32 +9,11 @@ name: Setmore API Tests - Node.js CI
 on:
   
   push:
-    branches: [ master,new_branch_repository]
+    branches: [ master]
   pull_request:
     branches: [ master ]
-jobs:
-  api-tests-sendmsg-on-every-pull-request:
-   if: github.event_name == 'pull_request'
-   
-   runs-on : ubuntu-latest
-  run: |
-           echo: "github.event.pull_request.user.login"
-           echo: "github.event.pull_request.description"
-#   timeout-minutes: 1
-#   steps :
-#          - name: 'Call API'
-#            uses: actionsflow/axios@v1
- 
-#            with: 
-# #              url: https://hooks.zapier.com/hooks/catch/4486187/ogi2ks0/
-#              method: 'POST'
-#              accept: 200
-#              content-type: application/json
-             
-#              data: '{ "PRUrl":"<<<${{github.event.pull_request.html_url}}>>>", "Created By": "<<<${{github.event.pull_request.user.login}}>>>", "PrNumber": "<<<${{github.ref}}>>>", "title": "<<<${{github.event.pull_request.title}}>>>", "description": "<<<${{github.event.pull_request.description}}"}'   
-             
 
-#   jobs:
+jobs:
   api-tests-on-Deployment:
    runs-on : ubuntu-latest
    
